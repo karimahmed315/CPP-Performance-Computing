@@ -1,0 +1,36 @@
+# Build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.manifest
+
+# Intermediate / compiler generated
+*.stackdump
+
+# Output / data files
+/data_out
+*out.txt
+
+# Logs
+*.log
+
+# IDE / editor settings
+.vscode/
+*.code-workspace
+
+# OS / misc
+Thumbs.db
+.DS_Store
+
+# Ignore NUL pseudo file accidentally listed
+nul
+
+# Allow source and build scripts
+!Makefile
+!README.md
+!serial_baseline.cpp
+!cache_optimized.cpp
+!parallel_openmp.cpp
