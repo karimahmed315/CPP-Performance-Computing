@@ -1,10 +1,10 @@
-# 🚀 High-Performance C++ Computing: Optimization & Parallelization Audit
+# High-Performance C++ Computing: Optimization & Parallelization Audit
 
 This repository showcases a structured performance audit of a computationally intensive C++ kernel, highlighting low-level optimization techniques and thread-level parallelism.
 
 The core problem involved a 2D five-point stencil update (iterative smoothing) over a large grid. The goal was to transform a naive serial implementation into a high-performance solution, demonstrating profiling-driven optimization of system bottlenecks.
 
-## 📈 Results & Key Metrics
+## Results & Key Metrics
 
 Benchmark methodology: measured with `std::chrono` on Intel(R) Core(TM) i5-5300U CPU @ 2.30GHz. The speedup below compares each version against the serial baseline.
 
@@ -21,7 +21,7 @@ Notes:
 - Threads fallback and OpenMP add parallel management overhead that can outweigh benefits for a tall-thin grid (nx=10000, ny=200) on limited core hardware; OpenMP result here is slower than single-thread optimized due to synchronization and scheduling costs vs memory bandwidth limits.
 - For larger ny (e.g., 1000+) or higher core count CPUs, OpenMP would typically surpass the single-thread optimized time.
 
-## 🧠 Optimization Strategy
+## Optimization Strategy
 
 The performance gain was achieved through a two-stage approach:
 
@@ -35,7 +35,7 @@ The performance gain was achieved through a two-stage approach:
    - Work Distribution: Identify embarrassingly parallel loops and apply the `#pragma omp parallel for` directive.
    - Concurrency Management: Use private/shared clauses and reductions to avoid data races and preserve correctness.
 
-## 🛠️ Build and Execution
+## Build and Execution
 
 The project includes a Makefile that simplifies compilation with the necessary optimization and threading flags.
 
